@@ -1,0 +1,23 @@
+pipelines:
+  - name: image_pull_test
+    steps:
+      - name: step1
+        type: Bash
+        execution:
+          onExecute:
+            - df -h
+            - node --version
+            - 'docker pull releases-docker.jfrog.io/jfrog/pipelines-u20java:11'
+            - df -h
+            - 'docker pull releases-docker.jfrog.io/jfrog/pipelines-u20java:17'
+            - df -h
+            - cd $shared_workspace
+            - mkdir testingDir
+            - cd testingDir
+            - 'git clone https://github.com/facebook/react.git .'
+            - df -h
+            - npm install pnpm
+            - pnpm install
+            - df -h
+          onComplete:
+            - df -h
