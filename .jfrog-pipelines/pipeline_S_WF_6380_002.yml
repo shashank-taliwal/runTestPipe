@@ -1,0 +1,28 @@
+pipelines:
+- name: pipeline_S_WF_6380_002
+  steps:
+    - name: S_WF_6380_002_1
+      type: Bash
+      execution:
+        onExecute:
+          - mkdir test_directory
+          - 'echo \${run_id} > test_directory/my_file_1'
+          - >-
+          add_run_variables step_one_id=\${step_id}
+          step_one_stepletId=\${steplet_id} JFROG_PIPELINES_RUN_STATE_DEBUG=true
+          - add_run_files test_directory test_directory
+    - name: S_WF_6380_002_2
+      type: Bash
+      configuration:
+        inputSteps:
+          - name: S_WF_6380_002_1
+      execution:
+        onExecute:
+          - mkdir test_directory
+          - 'echo \${run_id} > test_directory/my_file_2'
+          - add_run_files test_directory test_directory
+          - >-
+          add_run_variables step_two_id=\${step_id}
+          step_two_stepletId=\${steplet_id}
+          - restore_run_files test_directory
+          - ls
