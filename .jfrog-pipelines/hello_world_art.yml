@@ -1,4 +1,4 @@
-pipelines
+pipelines:
   - name: hello_world_art
     configuration:
       jfrogCliVersion: 2
