@@ -1,0 +1,23 @@
+pipelines:
+  - name: condition2
+    steps:
+      - name: step1
+        type: Bash
+        configuration:
+          allowFailure: true
+        execution:
+          onExecute:
+            - echo 'step1'
+            - add_run_variables 'var1=1'
+            - exit(1)
+      - name: step2
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: step1
+              status:
+                - failure
+        execution:
+          onExecute:
+            - echo 'success'
+            - echo $var1
