@@ -9,12 +9,12 @@ pipelines:
           onExecute:
             - echo 'step1'
             - exit 1
-    - name: step2
-      type: Bash
-      configuration:
-        allowFailure: true
-        inputSteps:
-          - name: step1
-      execution:
-        onExecute:
-          - echo 'failure'
+      - name: step2
+        type: Bash
+        configuration:
+          allowFailure: true
+          inputSteps:
+            - name: step1
+        execution:
+          onExecute:
+            - echo 'failure'
