@@ -1,11 +1,12 @@
-name: MyApprovalGatesPipeline
-steps:
-  - name: approvalGatesStep
-    type: Bash
-    configuration:
-      requiresApproval:
-        approvers:
-          - admin
-    execution:
-      onExecute:
-        - echo "executing step..."
+pipelines:
+  - name: MyApprovalGatesPipeline
+    steps:
+      - name: approvalGatesStep
+        type: Bash
+        configuration:
+          requiresApproval:
+            approvers:
+              - admin
+        execution:
+          onExecute:
+            - echo "executing step..."
