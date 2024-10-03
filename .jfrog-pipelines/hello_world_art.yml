@@ -1,0 +1,18 @@
+pipelines
+  - name: hello_world_art
+    configuration:
+      jfrogCliVersion: 2
+    steps:
+      - name: first_art
+        type: Bash
+        configuration:
+    execution:
+      onStart:
+        - >-
+          echo "onStart can be used to do some setup or initialization of your
+          dependencies to prepare for the execution."
+      onExecute:
+        - >-
+          echo "onExecute is the main section where you would issue your
+          build/test commands"
+        - jfrog --version
