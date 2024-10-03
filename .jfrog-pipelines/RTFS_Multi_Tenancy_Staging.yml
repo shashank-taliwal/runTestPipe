@@ -1,0 +1,8 @@
+pipelines:
+  - name: RTFS_Multi_Tenancy_Staging
+    steps:
+      - name: EXT_S_SYC_AU_0007
+        type: Bash
+        execution:
+          onExecute:
+            - echo hehe
