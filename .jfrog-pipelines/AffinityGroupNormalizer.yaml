@@ -1,0 +1,28 @@
+pipelines:
+  - name: ag_norm
+    configuration:
+      affinityGroup: 'pipe_ag'
+    steps:
+      - name: step1
+        type: Bash
+        execution:
+          onExecute:
+            - echo 'hi'
+      - name: step2
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: step1
+          affinityGroup: 'step_Ag'
+        execution:
+          onExecute:
+            - echo 'hi'
+      - name: step3
+        type: Bash
+        configuration:
+          inputSteps: 
+            - name: step1
+          affinityGroup: 'step_Ag'
+        execution:
+          onExecute:
+            - echo 'hi'
