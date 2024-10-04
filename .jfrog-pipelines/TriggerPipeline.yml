@@ -1,0 +1,12 @@
+pipelines:
+  - name: trigger_matrix_pipeline
+    steps:
+      - name: trigger_step
+        type: TriggerPipeline
+        configuration:
+          pipelineName: Matrix_Single_Pipeline
+          stepName: matrix_example
+          waitForRunCompletion: false
+        execution:
+          onExecute:
+            - echo "Triggered another pipeline"
