@@ -13,7 +13,6 @@ pipelines:
         configuration:
           inputSteps: 
             - name: step1
-          affinityGroup: 'step_Ag'
         execution:
           onExecute:
             - echo 'hi'
@@ -22,7 +21,6 @@ pipelines:
         configuration:
           inputSteps: 
             - name: step1
-          affinityGroup: 'step_Ag'
         execution:
           onExecute:
             - echo 'hi'
