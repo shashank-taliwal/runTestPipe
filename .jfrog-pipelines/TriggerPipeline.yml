@@ -8,5 +8,5 @@ pipelines:
           stepName: matrix_example
           waitForRunCompletion: false
         execution:
-          onExecute:
+          onComplete:
             - echo "Triggered another pipeline"
