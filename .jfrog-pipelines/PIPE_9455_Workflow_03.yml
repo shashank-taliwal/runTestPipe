@@ -4,7 +4,7 @@ pipelines:
       - name: step1
         type: Bash
         configuration:
-          allowFailure: false
+          allowFailure: true
         execution:
           onExecute:
             - echo 'step1'
