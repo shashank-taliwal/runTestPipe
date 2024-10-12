@@ -1,14 +1,14 @@
-pipelines:
-  - name: trigger_matrix_pipeline
-    steps:
-      - name: trigger_step
-        type: TriggerPipeline
-        configuration:
-          pipelineName: Matrix_Single_Pipeline
-          stepName: matrix_example
-          waitForRunCompletion: false
-          integrations:
-            - name: jpat
-        execution:
-          onComplete:
-            - echo "Triggered another pipeline"
+# pipelines:
+#   - name: trigger_matrix_pipeline
+#     steps:
+#       - name: trigger_step
+#         type: TriggerPipeline
+#         configuration:
+#           pipelineName: Matrix_Single_Pipeline
+#           stepName: matrix_example
+#           waitForRunCompletion: false
+#           integrations:
+#             - name: jpat
+#         execution:
+#           onComplete:
+#             - echo "Triggered another pipeline"
